@@ -2,13 +2,9 @@
 import pygame
 from pygame.locals import *
 import sys
-from pathlib import Path
+
 
 # 2 - Define constants
-BASE_PATH = Path(__file__).resolve().parent
-
-# Build path
-pathToBall = BASE_PATH + 'images/ball.png' 
 BLACK = (0, 0, 0)
 WINDOW_WIDTH = 640
 WINDOW_HEIGHT = 480
@@ -20,6 +16,7 @@ window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
 # 4 - Load assets: image(s), sound(s), etc.
+ballImage = pygame.image.load('images/ball.png')
 
 # 5 - Initialize variables
  
@@ -40,10 +37,11 @@ while True:
     window.fill(BLACK)
     
     # 10 - Draw all window elements
+    # draw ball at position 100 across (x) and 200 down (y)
+    window.blit(ballImage, (100, 200)) 
 
     # 11 - Update the window
     pygame.display.update()
 
     # 12 - Slow things down a bit
     clock.tick(FRAMES_PER_SECOND)
-
